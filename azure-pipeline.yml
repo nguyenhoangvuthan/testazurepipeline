@@ -1,0 +1,16 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  Test: mytest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |    
+    echo "Hello World in a YAML Pipeline" > "$PIPELINE_WORKSPACE/outputfile.txt"
+  displayName: 'Create a test file $(Test)'
